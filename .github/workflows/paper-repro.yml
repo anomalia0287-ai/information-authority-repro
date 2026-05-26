@@ -1,0 +1,72 @@
+name: Paper reproduction
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/paper-repro.yml"
+      - "paper/repro/**"
+      - "Romana/Tools/Test-PaperReadyBundle.ps1"
+      - "RomanAI.slnx"
+      - "NuGet.Config"
+      - "src/RomanAI.Core/**"
+      - "tools/RomanAI.Headless/**"
+      - "tests/RomanAI.Core.Tests/**"
+      - "Romana/Assets/Scripts/RomanAI/Core/**"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build reproduction image
+        run: docker build -f paper/repro/Dockerfile -t roman-ai-paper-repro:${{ github.sha }} .
+
+      - name: Capture image metadata
+        run: |
+          docker image inspect roman-ai-paper-repro:${{ github.sha }} > paper-repro-image-inspect.json
+          docker image inspect --format='image_id={{.Id}}' roman-ai-paper-repro:${{ github.sha }} | tee paper-repro-image-digest.txt
+          docker run --rm --entrypoint dotnet roman-ai-paper-repro:${{ github.sha }} --info | tee paper-repro-dotnet-info.txt
+
+      - name: Run reproduction bundle
+        run: |
+          mkdir -p paper/repro/out
+          docker run --rm -v "${{ github.workspace }}/paper/repro/out:/workspace/out" roman-ai-paper-repro:${{ github.sha }}
+
+      - name: Verify reported numeric values
+        shell: pwsh
+        run: |
+          $reportPath = "paper/repro/out/paper-ready-bundle/paper_bundle_verification_report.json"
+          $tablePath = "paper/repro/out/paper-ready-bundle/paper_results_table.md"
+          $report = Get-Content -LiteralPath $reportPath -Raw | ConvertFrom-Json
+          if (-not [bool]$report.passed) {
+            throw "paper_bundle_verification_report.json did not report passed=true"
+          }
+          $table = Get-Content -LiteralPath $tablePath -Raw
+          $required = @(
+            "authority_privileged_bait | 30 | 1.000000 | 1.000000 | 0.000000 | 0.000000 | 0.000000 | 0.000000 | 4.000000 | 1.000000",
+            "modifier_on | 30 | 1.000000 | 1.000000 | 0.000000 | 0.000000 | 0.000000 | 0.000000 | 0.000000 | 1.000000 | -0.192735 +/- 0.000000 | 0.077094 +/- 0.000000",
+            "heldout_modifier_on | 30 | 1.000000 | 1.000000 | 0.000000 | 0.000000 | 0.000000 | 0.000000 | 0.000000 | 1.000000 | -0.244582 +/- 0.000000 | 0.097833 +/- 0.000000",
+            "broader_contact_modifier_on | 30 | 1.000000 | 1.000000 | 0.000000 | 0.000000 | 0.000000 | 0.000000 | 0.000000 | 1.000000 | -0.263691 +/- 0.000000 | 0.105476 +/- 0.000000",
+            "broader_long_modifier_on | 30 | 1.000000 | 1.000000 | 0.000000 | 0.000000 | 0.000000 | 0.000000 | 0.000000 | 1.000000 | -0.311219 +/- 0.000000 | 0.124488 +/- 0.000000",
+            "privileged_truth_violation | authority_failure | 1 | 1 | 1.000000 | true"
+          )
+          foreach ($needle in $required) {
+            if ($table.IndexOf($needle, [System.StringComparison]::Ordinal) -lt 0) {
+              throw "Missing expected numeric row: $needle"
+            }
+          }
+          "passed=true" | Set-Content -LiteralPath paper-repro-summary.txt
+
+      - name: Upload reproduction artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-repro-${{ github.sha }}
+          path: |
+            paper/repro/out/paper-ready-bundle/**
+            paper-repro-image-inspect.json
+            paper-repro-image-digest.txt
+            paper-repro-dotnet-info.txt
+            paper-repro-summary.txt
