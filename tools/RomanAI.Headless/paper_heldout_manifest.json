@@ -1,0 +1,85 @@
+{
+  "format": "roman_paper_experiment_manifest_v1",
+  "setId": "unity_free_paper_heldout_conditions",
+  "setVersion": "0.1.0",
+  "description": "Held-out Unity-free paper experiment conditions for systems/reproducibility claims. This manifest is separate from the validation scenario manifest and is not used to tune core quality thresholds.",
+  "conditions": [
+    {
+      "ablationGroup": "contact_ablation",
+      "conditionId": "heldout_contact_off",
+      "scenarioId": "paper_heldout_contact_off",
+      "ticks": 6,
+      "agentCount": 3,
+      "baselineFatigue": 0.42,
+      "baselineConfidence": 0.47,
+      "includeContactObservation": false,
+      "applySyntheticPerformanceModifier": false
+    },
+    {
+      "ablationGroup": "contact_ablation",
+      "conditionId": "heldout_contact_on",
+      "scenarioId": "paper_heldout_contact_on",
+      "ticks": 6,
+      "agentCount": 3,
+      "baselineFatigue": 0.42,
+      "baselineConfidence": 0.47,
+      "includeContactObservation": true,
+      "applySyntheticPerformanceModifier": false
+    },
+    {
+      "ablationGroup": "synthetic_modifier_ablation",
+      "conditionId": "heldout_modifier_off",
+      "scenarioId": "paper_heldout_modifier_off",
+      "ticks": 7,
+      "agentCount": 1,
+      "baselineFatigue": 0.66,
+      "baselineConfidence": 0.41,
+      "includeContactObservation": false,
+      "applySyntheticPerformanceModifier": false
+    },
+    {
+      "ablationGroup": "synthetic_modifier_ablation",
+      "conditionId": "heldout_modifier_on",
+      "scenarioId": "paper_heldout_modifier_on",
+      "ticks": 7,
+      "agentCount": 1,
+      "baselineFatigue": 0.66,
+      "baselineConfidence": 0.41,
+      "includeContactObservation": false,
+      "applySyntheticPerformanceModifier": true
+    },
+    {
+      "ablationGroup": "squad_size_ablation",
+      "conditionId": "heldout_squad_size_3",
+      "scenarioId": "paper_heldout_squad_size_3",
+      "ticks": 6,
+      "agentCount": 3,
+      "baselineFatigue": 0.48,
+      "baselineConfidence": 0.53,
+      "includeContactObservation": false,
+      "applySyntheticPerformanceModifier": false
+    },
+    {
+      "ablationGroup": "squad_size_ablation",
+      "conditionId": "heldout_squad_size_5",
+      "scenarioId": "paper_heldout_squad_size_5",
+      "ticks": 6,
+      "agentCount": 5,
+      "baselineFatigue": 0.48,
+      "baselineConfidence": 0.53,
+      "includeContactObservation": false,
+      "applySyntheticPerformanceModifier": false
+    },
+    {
+      "ablationGroup": "squad_size_ablation",
+      "conditionId": "heldout_squad_size_8",
+      "scenarioId": "paper_heldout_squad_size_8",
+      "ticks": 6,
+      "agentCount": 8,
+      "baselineFatigue": 0.48,
+      "baselineConfidence": 0.53,
+      "includeContactObservation": false,
+      "applySyntheticPerformanceModifier": false
+    }
+  ]
+}

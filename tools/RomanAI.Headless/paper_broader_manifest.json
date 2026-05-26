@@ -1,0 +1,74 @@
+{
+  "format": "roman_paper_experiment_manifest_v1",
+  "setId": "unity_free_paper_broader_unseen_conditions",
+  "setVersion": "0.1.0",
+  "description": "Broader Unity-free paper conditions covering combined contact/modifier, long-horizon modifier, and dense squad contact families.",
+  "conditions": [
+    {
+      "ablationGroup": "combined_contact_modifier",
+      "conditionId": "broader_contact_modifier_control",
+      "scenarioId": "paper_broader_contact_modifier_control",
+      "ticks": 8,
+      "agentCount": 2,
+      "baselineFatigue": 0.62,
+      "baselineConfidence": 0.42,
+      "includeContactObservation": true,
+      "applySyntheticPerformanceModifier": false
+    },
+    {
+      "ablationGroup": "combined_contact_modifier",
+      "conditionId": "broader_contact_modifier_on",
+      "scenarioId": "paper_broader_contact_modifier_on",
+      "ticks": 8,
+      "agentCount": 2,
+      "baselineFatigue": 0.62,
+      "baselineConfidence": 0.42,
+      "includeContactObservation": true,
+      "applySyntheticPerformanceModifier": true
+    },
+    {
+      "ablationGroup": "long_horizon_modifier",
+      "conditionId": "broader_long_modifier_off",
+      "scenarioId": "paper_broader_long_modifier_off",
+      "ticks": 12,
+      "agentCount": 1,
+      "baselineFatigue": 0.80,
+      "baselineConfidence": 0.35,
+      "includeContactObservation": false,
+      "applySyntheticPerformanceModifier": false
+    },
+    {
+      "ablationGroup": "long_horizon_modifier",
+      "conditionId": "broader_long_modifier_on",
+      "scenarioId": "paper_broader_long_modifier_on",
+      "ticks": 12,
+      "agentCount": 1,
+      "baselineFatigue": 0.80,
+      "baselineConfidence": 0.35,
+      "includeContactObservation": false,
+      "applySyntheticPerformanceModifier": true
+    },
+    {
+      "ablationGroup": "dense_squad_contact",
+      "conditionId": "broader_dense_squad_contact_6",
+      "scenarioId": "paper_broader_dense_squad_contact_6",
+      "ticks": 9,
+      "agentCount": 6,
+      "baselineFatigue": 0.48,
+      "baselineConfidence": 0.52,
+      "includeContactObservation": true,
+      "applySyntheticPerformanceModifier": false
+    },
+    {
+      "ablationGroup": "dense_squad_contact",
+      "conditionId": "broader_dense_squad_contact_10",
+      "scenarioId": "paper_broader_dense_squad_contact_10",
+      "ticks": 9,
+      "agentCount": 10,
+      "baselineFatigue": 0.48,
+      "baselineConfidence": 0.52,
+      "includeContactObservation": true,
+      "applySyntheticPerformanceModifier": false
+    }
+  ]
+}

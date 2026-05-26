@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>RomanAI.Core</AssemblyName>
+    <RootNamespace>RomanAI</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Romana\Assets\Scripts\RomanAI\Core\*.cs" Link="UnityCore\%(Filename)%(Extension)" />
+    <Compile Include="HumanPerformance\*.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "roman_validation_scenario_manifest.schema.json",
+  "title": "Roman validation scenario manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "setId",
+    "setVersion",
+    "description",
+    "scenarios",
+    "invariants"
+  ],
+  "properties": {
+    "format": {
+      "const": "roman_validation_scenario_manifest_v1"
+    },
+    "setId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "setVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/scenario"
+      }
+    },
+    "replayProfiles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/replayProfile"
+      }
+    },
+    "invariants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/invariant"
+      }
+    }
+  },
+  "$defs": {
+    "scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scenarioId",
+        "purpose",
+        "defaultTicks"
+      ],
+      "properties": {
+        "scenarioId": {
+          "type": "string",
+          "minLength": 1,
+          "not": {
+            "const": "batch"
+          }
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "defaultTicks": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "replayProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profileId",
+        "purpose",
+        "tickMultiplier",
+        "minimumTicks"
+      ],
+      "properties": {
+        "profileId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tickMultiplier": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minimumTicks": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "invariant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scenarioId",
+        "invariantId",
+        "category",
+        "expected",
+        "reason",
+        "enabled"
+      ],
+      "properties": {
+        "scenarioId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "invariantId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "determinism",
+            "safety",
+            "contract",
+            "coverage",
+            "perception",
+            "state"
+          ]
+        },
+        "expected": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

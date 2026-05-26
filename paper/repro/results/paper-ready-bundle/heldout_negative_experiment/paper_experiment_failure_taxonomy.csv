@@ -1,0 +1,11 @@
+﻿experiment_id,failure_bucket,source,observed_failures,expected_failures,passed
+unity_free_paper_ablation_v0_2,contract_failure,normal_experiment,0,0,true
+unity_free_paper_ablation_v0_2,contract_failure,negative_control,2,2,true
+unity_free_paper_ablation_v0_2,determinism_failure,normal_experiment,0,0,true
+unity_free_paper_ablation_v0_2,determinism_failure,negative_control,1,1,true
+unity_free_paper_ablation_v0_2,authority_failure,normal_experiment,0,0,true
+unity_free_paper_ablation_v0_2,authority_failure,negative_control,1,1,true
+unity_free_paper_ablation_v0_2,safety_failure,normal_experiment,0,0,true
+unity_free_paper_ablation_v0_2,safety_failure,negative_control,2,2,true
+unity_free_paper_ablation_v0_2,state_semantics_failure,normal_experiment,0,0,true
+unity_free_paper_ablation_v0_2,state_semantics_failure,negative_control,0,0,true

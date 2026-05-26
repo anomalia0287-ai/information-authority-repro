@@ -1,0 +1,16 @@
+﻿gate_id,passed,status,evidence,blocker
+research_question_fixed,true,present,docs/paper_track_research_protocol.md records the systems/reproducibility question.,
+baseline_ablation_matrix_implemented,true,implemented,"Default experiment covers contact, synthetic modifier, and squad-size ablations.",
+held_out_manifest_implemented,true,implemented,tools/RomanAI.Headless/paper_heldout_manifest.json drives held-out conditions.,
+statistical_repetition_runner,true,implemented,Runner enforces N >= 30 repetitions per condition.,
+confidence_intervals_reported,true,implemented,"paper_experiment_summary.csv includes mean, SD, and ci95 columns.",
+negative_controls_fail_closed,true,implemented,"Held-out bundle runs runner-level failed executions for safety, contract, and determinism negative controls.",
+failure_taxonomy_populated,true,implemented,Failure taxonomy records normal passing rows and runner-level negative-control failed rows.,
+no_cheat_invariant_evidence,true,implemented,"Authority bait runs report privileged_truth_decisions=0 with blocked_privileged_access_attempts>0, and the privileged_truth_violation control fails closed.",
+artifact_bundle_generated,true,implemented,"Bundle writer emits result table, limitation section, readiness report, manifest, and raw CSV/JSON outputs.",
+limitations_section_present,true,implemented,paper_limitations.md is generated with supported and unsupported claim boundaries.,
+broader_unseen_scenario_families,true,implemented,"tools/RomanAI.Headless/paper_broader_manifest.json adds combined contact/modifier, long-horizon modifier, and dense squad contact families.",
+clean_machine_reproduction_script,true,implemented,Romana/Tools/Test-PaperReadyBundle.ps1 runs the Unity-free paper bundle verification path and writes a verification report.,
+paper_narrative_draft_present,true,implemented,"docs/paper_track_systems_reproducibility_draft.md records the draft claim matrix, method, results, limitations, and review checklist.",
+independent_clean_machine_reproduction,false,blocked,Current evidence is local to this workspace.,Run the bundle from a clean checkout on an independent machine and record the reproduction log.
+paper_narrative_external_review,false,blocked,"Result tables and limitations are generated, but no final paper narrative review has been completed.",Write and review the paper narrative against the claim boundary.

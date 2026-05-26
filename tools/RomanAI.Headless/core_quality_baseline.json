@@ -1,0 +1,364 @@
+{
+  "format": "roman_core_quality_baseline_v1",
+  "baselineId": "core-quality-baseline-20260516-v0.2",
+  "setId": "roman_core_validation_scenarios",
+  "setVersion": "0.3.2",
+  "passSummary": "quality baseline matched 4 scenarios, 21/21 invariants, 14/14 coverage rows, 18 trace-only decisions, 0 mutations, 0 invalid tick validations",
+  "evidenceFiles": [
+    "batch_result.json",
+    "scenario_summary.csv",
+    "tick_trace.csv",
+    "validation_report.csv",
+    "validation_report.json",
+    "validation_manifest.json",
+    "validation_coverage.csv",
+    "validation_coverage.json"
+  ],
+  "scenarioSummary": {
+    "rows": [
+      {
+        "scenario_id": "baseline_trace_hold",
+        "seed": 101,
+        "ticks": 2,
+        "agents": 2,
+        "total_observations": 0,
+        "total_decisions": 4,
+        "mutation_count": 0,
+        "invalid_inputs": 0,
+        "invalid_outputs": 0,
+        "trace_only_decisions": 4,
+        "avg_fatigue": "0.250",
+        "avg_confidence": "0.650",
+        "status": "passed"
+      },
+      {
+        "scenario_id": "contact_uncertainty_trace",
+        "seed": 202,
+        "ticks": 2,
+        "agents": 2,
+        "total_observations": 2,
+        "total_decisions": 4,
+        "mutation_count": 0,
+        "invalid_inputs": 0,
+        "invalid_outputs": 0,
+        "trace_only_decisions": 4,
+        "avg_fatigue": "0.400",
+        "avg_confidence": "0.500",
+        "status": "passed"
+      },
+      {
+        "scenario_id": "performance_state_trace",
+        "seed": 303,
+        "ticks": 2,
+        "agents": 1,
+        "total_observations": 0,
+        "total_decisions": 2,
+        "mutation_count": 0,
+        "invalid_inputs": 0,
+        "invalid_outputs": 0,
+        "trace_only_decisions": 2,
+        "avg_fatigue": "0.668",
+        "avg_confidence": "0.463",
+        "status": "passed"
+      },
+      {
+        "scenario_id": "squad_cohesion_trace",
+        "seed": 404,
+        "ticks": 2,
+        "agents": 4,
+        "total_observations": 0,
+        "total_decisions": 8,
+        "mutation_count": 0,
+        "invalid_inputs": 0,
+        "invalid_outputs": 0,
+        "trace_only_decisions": 8,
+        "avg_fatigue": "0.450",
+        "avg_confidence": "0.550",
+        "status": "passed"
+      }
+    ],
+    "aggregates": {
+      "total_decisions": 18,
+      "trace_only_decisions": 18,
+      "total_observations": 2,
+      "mutation_count": 0,
+      "invalid_inputs": 0,
+      "invalid_outputs": 0,
+      "trace_only_equals_total_decisions": true
+    }
+  },
+  "validationReport": {
+    "totalRows": 21,
+    "passedRows": 21,
+    "requiredInvariantIds": [
+      "batch_passes",
+      "scenario_count",
+      "scenario_ids_match_manifest",
+      "all_tick_validations_ok",
+      "no_world_mutation",
+      "trace_only_decisions_cover_outputs",
+      "deterministic_replay",
+      "long_replay_profile_deterministic",
+      "squad_decisions_each_tick",
+      "squad_behavior_stable"
+    ],
+    "rows": [
+      {
+        "scenario_id": "batch",
+        "invariant_id": "batch_passes",
+        "category": "safety",
+        "passed": true
+      },
+      {
+        "scenario_id": "batch",
+        "invariant_id": "scenario_count",
+        "category": "coverage",
+        "passed": true
+      },
+      {
+        "scenario_id": "batch",
+        "invariant_id": "scenario_ids_match_manifest",
+        "category": "coverage",
+        "passed": true
+      },
+      {
+        "scenario_id": "batch",
+        "invariant_id": "all_tick_validations_ok",
+        "category": "contract",
+        "passed": true
+      },
+      {
+        "scenario_id": "batch",
+        "invariant_id": "no_world_mutation",
+        "category": "safety",
+        "passed": true
+      },
+      {
+        "scenario_id": "batch",
+        "invariant_id": "trace_only_decisions_cover_outputs",
+        "category": "safety",
+        "passed": true
+      },
+      {
+        "scenario_id": "batch",
+        "invariant_id": "deterministic_replay",
+        "category": "determinism",
+        "passed": true
+      },
+      {
+        "scenario_id": "batch",
+        "invariant_id": "long_replay_profile_deterministic",
+        "category": "determinism",
+        "passed": true
+      },
+      {
+        "scenario_id": "baseline_trace_hold",
+        "invariant_id": "baseline_present",
+        "category": "coverage",
+        "passed": true
+      },
+      {
+        "scenario_id": "baseline_trace_hold",
+        "invariant_id": "baseline_no_observations",
+        "category": "state",
+        "passed": true
+      },
+      {
+        "scenario_id": "baseline_trace_hold",
+        "invariant_id": "baseline_behavior_stable",
+        "category": "state",
+        "passed": true
+      },
+      {
+        "scenario_id": "contact_uncertainty_trace",
+        "invariant_id": "contact_present",
+        "category": "coverage",
+        "passed": true
+      },
+      {
+        "scenario_id": "contact_uncertainty_trace",
+        "invariant_id": "contact_observations_each_tick",
+        "category": "perception",
+        "passed": true
+      },
+      {
+        "scenario_id": "contact_uncertainty_trace",
+        "invariant_id": "contact_no_mutation",
+        "category": "safety",
+        "passed": true
+      },
+      {
+        "scenario_id": "performance_state_trace",
+        "invariant_id": "performance_present",
+        "category": "coverage",
+        "passed": true
+      },
+      {
+        "scenario_id": "performance_state_trace",
+        "invariant_id": "performance_fatigue_decreases",
+        "category": "state",
+        "passed": true
+      },
+      {
+        "scenario_id": "performance_state_trace",
+        "invariant_id": "performance_confidence_increases",
+        "category": "state",
+        "passed": true
+      },
+      {
+        "scenario_id": "squad_cohesion_trace",
+        "invariant_id": "squad_present",
+        "category": "coverage",
+        "passed": true
+      },
+      {
+        "scenario_id": "squad_cohesion_trace",
+        "invariant_id": "squad_agent_count",
+        "category": "coverage",
+        "passed": true
+      },
+      {
+        "scenario_id": "squad_cohesion_trace",
+        "invariant_id": "squad_decisions_each_tick",
+        "category": "contract",
+        "passed": true
+      },
+      {
+        "scenario_id": "squad_cohesion_trace",
+        "invariant_id": "squad_behavior_stable",
+        "category": "state",
+        "passed": true
+      }
+    ]
+  },
+  "validationCoverage": {
+    "totalRows": 14,
+    "passedRows": 14,
+    "aggregate": {
+      "total_invariants": 21,
+      "passed_invariants": 21,
+      "failed_invariants": 0
+    },
+    "rows": [
+      {
+        "scenario_id": "batch",
+        "category": "safety",
+        "total_invariants": 3,
+        "passed_invariants": 3,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "batch",
+        "category": "coverage",
+        "total_invariants": 2,
+        "passed_invariants": 2,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "batch",
+        "category": "contract",
+        "total_invariants": 1,
+        "passed_invariants": 1,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "batch",
+        "category": "determinism",
+        "total_invariants": 2,
+        "passed_invariants": 2,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "baseline_trace_hold",
+        "category": "coverage",
+        "total_invariants": 1,
+        "passed_invariants": 1,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "baseline_trace_hold",
+        "category": "state",
+        "total_invariants": 2,
+        "passed_invariants": 2,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "contact_uncertainty_trace",
+        "category": "coverage",
+        "total_invariants": 1,
+        "passed_invariants": 1,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "contact_uncertainty_trace",
+        "category": "perception",
+        "total_invariants": 1,
+        "passed_invariants": 1,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "contact_uncertainty_trace",
+        "category": "safety",
+        "total_invariants": 1,
+        "passed_invariants": 1,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "performance_state_trace",
+        "category": "coverage",
+        "total_invariants": 1,
+        "passed_invariants": 1,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "performance_state_trace",
+        "category": "state",
+        "total_invariants": 2,
+        "passed_invariants": 2,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "squad_cohesion_trace",
+        "category": "coverage",
+        "total_invariants": 2,
+        "passed_invariants": 2,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "squad_cohesion_trace",
+        "category": "contract",
+        "total_invariants": 1,
+        "passed_invariants": 1,
+        "failed_invariants": 0,
+        "passed": true
+      },
+      {
+        "scenario_id": "squad_cohesion_trace",
+        "category": "state",
+        "total_invariants": 1,
+        "passed_invariants": 1,
+        "failed_invariants": 0,
+        "passed": true
+      }
+    ]
+  },
+  "negativeFixtures": [
+    "valid_fixture",
+    "mutation_drift",
+    "set_version_drift",
+    "invariant_pass_count_drift",
+    "scenario_order_drift"
+  ]
+}

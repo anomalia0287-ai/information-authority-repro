@@ -1,0 +1,206 @@
+{
+  "format": "roman_validation_scenario_manifest_v1",
+  "setId": "roman_core_validation_scenarios",
+  "setVersion": "0.3.2",
+  "description": "Manifest-driven engineering validation set for the default Unity-free headless core simulation batch.",
+  "scenarios": [
+    {
+      "scenarioId": "baseline_trace_hold",
+      "purpose": "Stable trace-only baseline with no observations and no behavior drift.",
+      "defaultTicks": 4
+    },
+    {
+      "scenarioId": "contact_uncertainty_trace",
+      "purpose": "Perception trace with one contact observation per tick and no world mutation.",
+      "defaultTicks": 4
+    },
+    {
+      "scenarioId": "performance_state_trace",
+      "purpose": "Synthetic behavior-state delta trace that lowers fatigue and raises confidence.",
+      "defaultTicks": 5
+    },
+    {
+      "scenarioId": "squad_cohesion_trace",
+      "purpose": "Deterministic multi-agent trace that preserves squad behavior state while emitting one trace-only decision per live agent each tick.",
+      "defaultTicks": 4
+    }
+  ],
+  "replayProfiles": [
+    {
+      "profileId": "long_replay",
+      "purpose": "Extended deterministic replay window for the default Unity-free validation scenarios.",
+      "tickMultiplier": 6,
+      "minimumTicks": 12
+    }
+  ],
+  "invariants": [
+    {
+      "scenarioId": "batch",
+      "invariantId": "batch_passes",
+      "category": "safety",
+      "expected": "passed=true",
+      "reason": "default batch result must pass",
+      "enabled": true
+    },
+    {
+      "scenarioId": "batch",
+      "invariantId": "scenario_count",
+      "category": "coverage",
+      "expected": "manifest scenario count",
+      "reason": "default validation set requires every manifest scenario to run",
+      "enabled": true
+    },
+    {
+      "scenarioId": "batch",
+      "invariantId": "scenario_ids_match_manifest",
+      "category": "coverage",
+      "expected": "executed scenario ids match manifest scenario ids in order",
+      "reason": "tracked validation scenario assets must drive the executed headless batch",
+      "enabled": true
+    },
+    {
+      "scenarioId": "batch",
+      "invariantId": "all_tick_validations_ok",
+      "category": "contract",
+      "expected": "all tick validation fields equal ok",
+      "reason": "every tick row must validate",
+      "enabled": true
+    },
+    {
+      "scenarioId": "batch",
+      "invariantId": "no_world_mutation",
+      "category": "safety",
+      "expected": "0 mutations",
+      "reason": "validation scenarios must remain non-mutating",
+      "enabled": true
+    },
+    {
+      "scenarioId": "batch",
+      "invariantId": "trace_only_decisions_cover_outputs",
+      "category": "safety",
+      "expected": "all decisions are trace-only",
+      "reason": "all emitted decisions must remain trace-only",
+      "enabled": true
+    },
+    {
+      "scenarioId": "batch",
+      "invariantId": "deterministic_replay",
+      "category": "determinism",
+      "expected": "repeat output matches",
+      "reason": "default scenario set must be repeatable",
+      "enabled": true
+    },
+    {
+      "scenarioId": "batch",
+      "invariantId": "long_replay_profile_deterministic",
+      "category": "determinism",
+      "expected": "long_replay profile repeat output matches",
+      "reason": "extended replay window must remain deterministic beyond the smoke tick override",
+      "enabled": true
+    },
+    {
+      "scenarioId": "baseline_trace_hold",
+      "invariantId": "baseline_present",
+      "category": "coverage",
+      "expected": "present",
+      "reason": "baseline scenario must be present",
+      "enabled": true
+    },
+    {
+      "scenarioId": "baseline_trace_hold",
+      "invariantId": "baseline_no_observations",
+      "category": "state",
+      "expected": "0 observations",
+      "reason": "baseline scenario should not include contact observations",
+      "enabled": true
+    },
+    {
+      "scenarioId": "baseline_trace_hold",
+      "invariantId": "baseline_behavior_stable",
+      "category": "state",
+      "expected": "fatigue/confidence stable",
+      "reason": "baseline behavior should remain stable under trace-only hold",
+      "enabled": true
+    },
+    {
+      "scenarioId": "contact_uncertainty_trace",
+      "invariantId": "contact_present",
+      "category": "coverage",
+      "expected": "present",
+      "reason": "contact scenario must be present",
+      "enabled": true
+    },
+    {
+      "scenarioId": "contact_uncertainty_trace",
+      "invariantId": "contact_observations_each_tick",
+      "category": "perception",
+      "expected": "one observation per tick",
+      "reason": "contact scenario should record one observation per tick",
+      "enabled": true
+    },
+    {
+      "scenarioId": "contact_uncertainty_trace",
+      "invariantId": "contact_no_mutation",
+      "category": "safety",
+      "expected": "0 mutations",
+      "reason": "contact observations must not mutate world state",
+      "enabled": true
+    },
+    {
+      "scenarioId": "performance_state_trace",
+      "invariantId": "performance_present",
+      "category": "coverage",
+      "expected": "present",
+      "reason": "performance scenario must be present",
+      "enabled": true
+    },
+    {
+      "scenarioId": "performance_state_trace",
+      "invariantId": "performance_fatigue_decreases",
+      "category": "state",
+      "expected": "final fatigue below first fatigue",
+      "reason": "synthetic performance delta should reduce fatigue in scenario trace",
+      "enabled": true
+    },
+    {
+      "scenarioId": "performance_state_trace",
+      "invariantId": "performance_confidence_increases",
+      "category": "state",
+      "expected": "final confidence above first confidence",
+      "reason": "synthetic performance delta should increase confidence in scenario trace",
+      "enabled": true
+    },
+    {
+      "scenarioId": "squad_cohesion_trace",
+      "invariantId": "squad_present",
+      "category": "coverage",
+      "expected": "present",
+      "reason": "squad cohesion scenario must be present",
+      "enabled": true
+    },
+    {
+      "scenarioId": "squad_cohesion_trace",
+      "invariantId": "squad_agent_count",
+      "category": "coverage",
+      "expected": "4 agents",
+      "reason": "squad cohesion scenario must exercise a multi-agent trace",
+      "enabled": true
+    },
+    {
+      "scenarioId": "squad_cohesion_trace",
+      "invariantId": "squad_decisions_each_tick",
+      "category": "contract",
+      "expected": "ticks * agents decisions",
+      "reason": "trace-only core output should emit one decision per live agent each tick",
+      "enabled": true
+    },
+    {
+      "scenarioId": "squad_cohesion_trace",
+      "invariantId": "squad_behavior_stable",
+      "category": "state",
+      "expected": "fatigue/confidence stable",
+      "reason": "squad behavior state should remain stable without synthetic performance deltas",
+      "enabled": true
+    }
+  ]
+}

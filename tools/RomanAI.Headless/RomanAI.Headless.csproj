@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="HeadlessScenarioRunner.cs" />
+    <Compile Include="ValidationScenarioSet.cs" />
+    <Compile Include="PaperExperimentRunner.cs" />
+    <Compile Include="..\..\Romana\Assets\Scripts\RomanAI\Core\*.cs" Link="UnityCore\%(Filename)%(Extension)" />
+    <Compile Include="..\..\src\RomanAI.Core\HumanPerformance\*.cs" Link="HumanPerformance\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="validation_scenarios_manifest.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="paper_heldout_manifest.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="paper_broader_manifest.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
