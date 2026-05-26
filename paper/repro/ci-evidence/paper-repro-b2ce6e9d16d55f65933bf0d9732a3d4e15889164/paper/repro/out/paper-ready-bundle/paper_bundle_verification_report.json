@@ -1,0 +1,169 @@
+{
+  "passed": true,
+  "repoRoot": "/workspace",
+  "projectPath": "/workspace/Romana",
+  "outputPath": "/workspace/out/paper-ready-bundle",
+  "repetitions": 30,
+  "checks": [
+    {
+      "name": "dotnet_build",
+      "passed": true,
+      "summary": "passed",
+      "details": {
+        "outputLineCount": 11,
+        "outputTail": [
+          "  Determining projects to restore...",
+          "  All projects are up-to-date for restore.",
+          "  RomanAI.Core -> /workspace/src/RomanAI.Core/bin/Debug/net10.0/RomanAI.Core.dll",
+          "  RomanAI.Core.Tests -> /workspace/tests/RomanAI.Core.Tests/bin/Debug/net10.0/RomanAI.Core.Tests.dll",
+          "  RomanAI.Headless -> /workspace/tools/RomanAI.Headless/bin/Debug/net10.0/RomanAI.Headless.dll",
+          "",
+          "Build succeeded.",
+          "    0 Warning(s)",
+          "    0 Error(s)",
+          "",
+          "Time Elapsed 00:00:01.33"
+        ],
+        "command": "dotnet build RomanAI.slnx --configfile NuGet.Config -m:1 -v:minimal",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "core_tests",
+      "passed": true,
+      "summary": "passed",
+      "details": {
+        "outputLineCount": 1,
+        "outputTail": [
+          "RomanAI.Core tests passed."
+        ],
+        "command": "dotnet run --project tests\\RomanAI.Core.Tests\\RomanAI.Core.Tests.csproj --configfile NuGet.Config --no-build",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "paper_ready_bundle",
+      "passed": true,
+      "summary": "passed",
+      "details": {
+        "outputLineCount": 97,
+        "outputTail": [
+          "These results do not support tactical superiority, human-realistic behavior validity, live movement/combat approval, medical validity, targeting validity, or production/default learned policy control.",
+          "",
+          "RomanAI.Headless paper readiness",
+          "gate_id,passed,status,evidence,blocker",
+          "research_question_fixed,true,present,docs/paper_track_research_protocol.md records the systems/reproducibility question.,",
+          "baseline_ablation_matrix_implemented,true,implemented,\"Default experiment covers contact, synthetic modifier, and squad-size ablations.\",",
+          "held_out_manifest_implemented,true,implemented,tools/RomanAI.Headless/paper_heldout_manifest.json drives held-out conditions.,",
+          "statistical_repetition_runner,true,implemented,Runner enforces N >= 30 repetitions per condition.,",
+          "confidence_intervals_reported,true,implemented,\"paper_experiment_summary.csv includes mean, SD, and ci95 columns.\",",
+          "negative_controls_fail_closed,true,implemented,\"Held-out bundle runs runner-level failed executions for safety, contract, and determinism negative controls.\",",
+          "failure_taxonomy_populated,true,implemented,Failure taxonomy records normal passing rows and runner-level negative-control failed rows.,",
+          "no_cheat_invariant_evidence,true,implemented,\"Authority bait runs report privileged_truth_decisions=0 with blocked_privileged_access_attempts>0, and the privileged_truth_violation control fails closed.\",",
+          "artifact_bundle_generated,true,implemented,\"Bundle writer emits result table, limitation section, readiness report, manifest, and raw CSV/JSON outputs.\",",
+          "limitations_section_present,true,implemented,paper_limitations.md is generated with supported and unsupported claim boundaries.,",
+          "broader_unseen_scenario_families,true,implemented,\"tools/RomanAI.Headless/paper_broader_manifest.json adds combined contact/modifier, long-horizon modifier, and dense squad contact families.\",",
+          "clean_machine_reproduction_script,true,implemented,Romana/Tools/Test-PaperReadyBundle.ps1 runs the Unity-free paper bundle verification path and writes a verification report.,",
+          "paper_narrative_draft_present,true,implemented,\"docs/paper_track_systems_reproducibility_draft.md records the draft claim matrix, method, results, limitations, and review checklist.\",",
+          "independent_clean_machine_reproduction,false,blocked,Current evidence is local to this workspace.,Run the bundle from a clean checkout on an independent machine and record the reproduction log.",
+          "paper_narrative_external_review,false,blocked,\"Result tables and limitations are generated, but no final paper narrative review has been completed.\",Write and review the paper narrative against the claim boundary.",
+          "wrote_paper_ready_bundle_outputs=/workspace/out/paper-ready-bundle"
+        ],
+        "command": "dotnet run --project tools\\RomanAI.Headless\\RomanAI.Headless.csproj --configfile NuGet.Config --no-build -- --paper-ready-bundle --paper-repetitions 30 --out /workspace/out/paper-ready-bundle",
+        "exitCode": 0
+      }
+    },
+    {
+      "name": "paper_bundle_files",
+      "passed": true,
+      "summary": "expected files present and non-empty",
+      "details": {
+        "missing": [],
+        "empty": [],
+        "expectedFiles": [
+          "paper_results_table.md",
+          "paper_limitations.md",
+          "paper_readiness_report.csv",
+          "paper_readiness_report.json",
+          "paper_artifact_bundle_manifest.json",
+          "default_experiment\\paper_experiment_summary.csv",
+          "default_experiment\\paper_experiment_runs.csv",
+          "default_experiment\\paper_experiment_negative_controls.csv",
+          "default_experiment\\paper_experiment_failure_taxonomy.csv",
+          "default_experiment\\paper_experiment_result.json",
+          "heldout_negative_experiment\\paper_experiment_summary.csv",
+          "heldout_negative_experiment\\paper_experiment_runs.csv",
+          "heldout_negative_experiment\\paper_experiment_negative_controls.csv",
+          "heldout_negative_experiment\\paper_experiment_failure_taxonomy.csv",
+          "heldout_negative_experiment\\paper_experiment_result.json",
+          "broader_unseen_experiment\\paper_experiment_summary.csv",
+          "broader_unseen_experiment\\paper_experiment_runs.csv",
+          "broader_unseen_experiment\\paper_experiment_negative_controls.csv",
+          "broader_unseen_experiment\\paper_experiment_failure_taxonomy.csv",
+          "broader_unseen_experiment\\paper_experiment_result.json",
+          "authority_no_cheat_experiment\\paper_experiment_summary.csv",
+          "authority_no_cheat_experiment\\paper_experiment_runs.csv",
+          "authority_no_cheat_experiment\\paper_experiment_negative_controls.csv",
+          "authority_no_cheat_experiment\\paper_experiment_failure_taxonomy.csv",
+          "authority_no_cheat_experiment\\paper_experiment_result.json"
+        ]
+      }
+    },
+    {
+      "name": "paper_bundle_manifest_hashes",
+      "passed": true,
+      "summary": "bundle manifest hashes match generated files",
+      "details": {
+        "manifestPath": "/workspace/out/paper-ready-bundle/paper_artifact_bundle_manifest.json",
+        "issueCount": 0,
+        "issues": []
+      }
+    },
+    {
+      "name": "paper_bundle_command_provenance",
+      "passed": true,
+      "summary": "artifact commands record actual seed, output path, and manifest arguments",
+      "details": {
+        "manifestPath": "/workspace/out/paper-ready-bundle/paper_artifact_bundle_manifest.json",
+        "commands": [
+          "dotnet run --project tools\\RomanAI.Headless\\RomanAI.Headless.csproj --configfile NuGet.Config --no-build -- --paper-ready-bundle --paper-repetitions 30 --paper-seed-start 1001 --paper-heldout-manifest /workspace/tools/RomanAI.Headless/paper_heldout_manifest.json --paper-broader-manifest /workspace/tools/RomanAI.Headless/paper_broader_manifest.json --out /workspace/out/paper-ready-bundle",
+          "dotnet run --project tools\\RomanAI.Headless\\RomanAI.Headless.csproj --configfile NuGet.Config --no-build -- --paper-experiment --paper-repetitions 30 --paper-seed-start 1001 --out /workspace/out/paper-ready-bundle/default_experiment",
+          "dotnet run --project tools\\RomanAI.Headless\\RomanAI.Headless.csproj --configfile NuGet.Config --no-build -- --paper-experiment --paper-repetitions 30 --paper-seed-start 9001 --paper-heldout-manifest /workspace/tools/RomanAI.Headless/paper_heldout_manifest.json --paper-negative-controls --out /workspace/out/paper-ready-bundle/heldout_negative_experiment",
+          "dotnet run --project tools\\RomanAI.Headless\\RomanAI.Headless.csproj --configfile NuGet.Config --no-build -- --paper-experiment --paper-repetitions 30 --paper-seed-start 17001 --paper-broader-manifest /workspace/tools/RomanAI.Headless/paper_broader_manifest.json --out /workspace/out/paper-ready-bundle/broader_unseen_experiment"
+        ],
+        "issueCount": 0,
+        "issues": []
+      }
+    },
+    {
+      "name": "paper_readiness_report",
+      "passed": true,
+      "summary": "readiness gates match expected paper-track state",
+      "details": {
+        "issues": [],
+        "readinessPath": "/workspace/out/paper-ready-bundle/paper_readiness_report.json",
+        "issueCount": 0
+      }
+    },
+    {
+      "name": "paper_negative_controls",
+      "passed": true,
+      "summary": "negative controls are backed by runner-level failed rows",
+      "details": {
+        "issues": [],
+        "issueCount": 0
+      }
+    },
+    {
+      "name": "paper_claim_boundaries",
+      "passed": true,
+      "summary": "result and limitation files preserve claim boundaries",
+      "details": {
+        "issues": [],
+        "issueCount": 0
+      }
+    }
+  ],
+  "warnings": [],
+  "errors": []
+}

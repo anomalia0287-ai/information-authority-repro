@@ -1,0 +1,115 @@
+﻿{
+  "format": "roman_paper_readiness_report_v1",
+  "bundleId": "unity_free_paper_ready_bundle_v0_1",
+  "experimentId": "unity_free_paper_ablation_v0_2",
+  "evidenceBundlePassed": true,
+  "paperCompletionReady": false,
+  "status": "evidence_bundle_passed_but_paper_completion_incomplete",
+  "gates": [
+    {
+      "gateId": "research_question_fixed",
+      "passed": true,
+      "status": "present",
+      "evidence": "docs/paper_track_research_protocol.md records the systems/reproducibility question.",
+      "blocker": ""
+    },
+    {
+      "gateId": "baseline_ablation_matrix_implemented",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "Default experiment covers contact, synthetic modifier, and squad-size ablations.",
+      "blocker": ""
+    },
+    {
+      "gateId": "held_out_manifest_implemented",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "tools/RomanAI.Headless/paper_heldout_manifest.json drives held-out conditions.",
+      "blocker": ""
+    },
+    {
+      "gateId": "statistical_repetition_runner",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "Runner enforces N \u003E= 30 repetitions per condition.",
+      "blocker": ""
+    },
+    {
+      "gateId": "confidence_intervals_reported",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "paper_experiment_summary.csv includes mean, SD, and ci95 columns.",
+      "blocker": ""
+    },
+    {
+      "gateId": "negative_controls_fail_closed",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "Held-out bundle runs runner-level failed executions for safety, contract, and determinism negative controls.",
+      "blocker": ""
+    },
+    {
+      "gateId": "failure_taxonomy_populated",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "Failure taxonomy records normal passing rows and runner-level negative-control failed rows.",
+      "blocker": ""
+    },
+    {
+      "gateId": "no_cheat_invariant_evidence",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "Authority bait runs report privileged_truth_decisions=0 with blocked_privileged_access_attempts\u003E0, and the privileged_truth_violation control fails closed.",
+      "blocker": ""
+    },
+    {
+      "gateId": "artifact_bundle_generated",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "Bundle writer emits result table, limitation section, readiness report, manifest, and raw CSV/JSON outputs.",
+      "blocker": ""
+    },
+    {
+      "gateId": "limitations_section_present",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "paper_limitations.md is generated with supported and unsupported claim boundaries.",
+      "blocker": ""
+    },
+    {
+      "gateId": "broader_unseen_scenario_families",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "tools/RomanAI.Headless/paper_broader_manifest.json adds combined contact/modifier, long-horizon modifier, and dense squad contact families.",
+      "blocker": ""
+    },
+    {
+      "gateId": "clean_machine_reproduction_script",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "Romana/Tools/Test-PaperReadyBundle.ps1 runs the Unity-free paper bundle verification path and writes a verification report.",
+      "blocker": ""
+    },
+    {
+      "gateId": "paper_narrative_draft_present",
+      "passed": true,
+      "status": "implemented",
+      "evidence": "docs/paper_track_systems_reproducibility_draft.md records the draft claim matrix, method, results, limitations, and review checklist.",
+      "blocker": ""
+    },
+    {
+      "gateId": "independent_clean_machine_reproduction",
+      "passed": false,
+      "status": "blocked",
+      "evidence": "Current evidence is local to this workspace.",
+      "blocker": "Run the bundle from a clean checkout on an independent machine and record the reproduction log."
+    },
+    {
+      "gateId": "paper_narrative_external_review",
+      "passed": false,
+      "status": "blocked",
+      "evidence": "Result tables and limitations are generated, but no final paper narrative review has been completed.",
+      "blocker": "Write and review the paper narrative against the claim boundary."
+    }
+  ]
+}

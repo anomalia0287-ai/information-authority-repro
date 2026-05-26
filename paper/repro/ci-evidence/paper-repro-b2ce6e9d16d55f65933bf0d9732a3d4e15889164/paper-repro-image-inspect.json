@@ -1,0 +1,111 @@
+[
+    {
+        "Id": "sha256:4c9cee48a3460a99874e8d4f580eb30637156ecce9c79cdf0e9aa602f6eace76",
+        "RepoTags": [
+            "roman-ai-paper-repro:b2ce6e9d16d55f65933bf0d9732a3d4e15889164"
+        ],
+        "RepoDigests": [],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-05-26T04:00:23.491643336Z",
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "APP_UID=1654",
+                "ASPNETCORE_HTTP_PORTS=8080",
+                "DOTNET_RUNNING_IN_CONTAINER=true",
+                "DOTNET_VERSION=10.0.8",
+                "ASPNET_VERSION=10.0.8",
+                "DOTNET_GENERATE_ASPNET_CERTIFICATE=false",
+                "DOTNET_NOLOGO=true",
+                "DOTNET_SDK_VERSION=10.0.300",
+                "DOTNET_USE_POLLING_FILE_WATCHER=true",
+                "NUGET_XMLDOC_MODE=skip",
+                "POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-DotnetSDK-Ubuntu-24.04",
+                "DOTNET_ROLL_FORWARD=Major",
+                "DOTNET_CLI_HOME=/workspace/.dotnet",
+                "DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1",
+                "NUGET_PACKAGES=/workspace/.nuget/packages"
+            ],
+            "Cmd": null,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "/workspace",
+            "Entrypoint": [
+                "pwsh",
+                "-NoLogo",
+                "-NoProfile",
+                "-File",
+                "/workspace/Romana/Tools/Test-PaperReadyBundle.ps1",
+                "-ProjectPath",
+                "/workspace/Romana",
+                "-OutputPath",
+                "/workspace/out/paper-ready-bundle"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "org.opencontainers.image.version": "24.04"
+            },
+            "Shell": [
+                "/bin/bash",
+                "-o",
+                "pipefail",
+                "-c"
+            ]
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 1082324659,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/m9pbuuqre22m5rvgct3xivboj/diff:/var/lib/docker/overlay2/lp7u9gzsk8h1zvylkh3u5x5pt/diff:/var/lib/docker/overlay2/lbfcdc6f8fgu0n3ty5de8is52/diff:/var/lib/docker/overlay2/zgqnskulx9kgyo2lqogzb5iet/diff:/var/lib/docker/overlay2/wai05jkyb0np2jnn2yvp6bmch/diff:/var/lib/docker/overlay2/b2hbj734wh4c2ul96u7icrhod/diff:/var/lib/docker/overlay2/wzx0mssu6l70fpcnz7fcntb3r/diff:/var/lib/docker/overlay2/2hn4s00xs68bx6ddf4b56tsys/diff:/var/lib/docker/overlay2/e8dlsae9lnpc9z6rp7ehmpmxv/diff:/var/lib/docker/overlay2/nob0bzfs42m3di4abog1ie6gx/diff:/var/lib/docker/overlay2/b88j16t7jdhbpfmfw1nsj6cz1/diff:/var/lib/docker/overlay2/3ez12c94ddpn1nfp3w4vhi84j/diff:/var/lib/docker/overlay2/e598ac9424ee0b66eedaea792e8b8a26f349b04046a310e07d576abc193a30e1/diff:/var/lib/docker/overlay2/14da470d7ddbaa03b9a4a950fd34adbb3196dc583022e44ee24a5f6210a09e93/diff:/var/lib/docker/overlay2/e29b92c8bca64d2ad0fae5d6cf864b0c24268b1a46d04c4b14386def5be34c6d/diff:/var/lib/docker/overlay2/3f6f4750d8e0416a9ae94c0507266ad64af2c66c457677b2ee022e67b1fb3f55/diff:/var/lib/docker/overlay2/7492460aba985c7b46f351f7b03cbb75c2e3cb58119b5d0f3b57d2f1db24c8c6/diff:/var/lib/docker/overlay2/a278ff68f6b61c949027b8daec079b52c4351d5c424566022cf07030ac6c096c/diff:/var/lib/docker/overlay2/73b4a3f71242a8f0a1076869d3f6ead2f12dc7d9d10e6ce97cc323599c41fe9a/diff:/var/lib/docker/overlay2/ccb97747a699c90dcb1e2f3c28cbd44d4af3d49c2a499f92306133ae7540e22a/diff:/var/lib/docker/overlay2/08ecba4690e72314b94592fcede644656ebd5394ab8a16f01fc73ea73f9ca683/diff:/var/lib/docker/overlay2/afb2e7ec89e93057808cadf91df5609a164dce1436c4813aa29ad5907ed042bf/diff",
+                "MergedDir": "/var/lib/docker/overlay2/pbdk3uhvm49bjnk8jn0ooocrj/merged",
+                "UpperDir": "/var/lib/docker/overlay2/pbdk3uhvm49bjnk8jn0ooocrj/diff",
+                "WorkDir": "/var/lib/docker/overlay2/pbdk3uhvm49bjnk8jn0ooocrj/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:98effb2dfe85d4c431f97d90482075f19e5fc3a57c2dd423d8bdfd4813620043",
+                "sha256:62b6e2b89d7d8b8366bae9ab66c2c571a73894aeb242b300c2b2d534ce78d6df",
+                "sha256:1774fd6b06e6cc12f96590f32301356c2c48cd8aee5d81de657f45b285fdcd82",
+                "sha256:4e93e207d02900bb4bccbda7d461af56e6be6734b13bcb0aece14eabf3859549",
+                "sha256:7834de0e297b1634d76ea532e51ff7c7bc9d583d264b73af6ee954b1375ed64e",
+                "sha256:56b291414b0df636e6d9f368173194250e2677170d7c5f54dfe8aeec7aa3130f",
+                "sha256:48540441de8c9904acf8d34a6eb640aebf82bbcd811bbeac97f43411d77bdefd",
+                "sha256:0daee7e801c51c7700a50bbdb0396ea94f99c798098951b51ba1da350555b47d",
+                "sha256:113e6e1c3a960a020c33649f6d724a52671d7388fc3d9fed9e14066471c90dee",
+                "sha256:d0f1e026d60dc4190244ccdbc20479178437e3074bf3b92bd08f4858793e79fb",
+                "sha256:230c12572517784c493c8fc6e644cba87a8715c0b18519fc898f427097fd0539",
+                "sha256:072d3371ecdfe62c0dcd1783158cc54ea5ced7893d8482ba880a33f597b2d9cc",
+                "sha256:98ef59fbe1c086eed97dcf5ab899d2c1d88dec58ba4cf5323b1319f58480e853",
+                "sha256:1f7e9337df94d6184d153d640088d7fdeb8e9228ed6747093bf1a333403d18fa",
+                "sha256:9026fa27e297586897576f58a5797d7fe2de30e66487f121350e088ddeb80803",
+                "sha256:62169021eba25cf62244da5dce55a0ccdf7972e4445dba4293755dff7e5575bf",
+                "sha256:a8f42ab01c54bc172d3124ff57877ef878cefd65fb42ab54df10e3411bd8643c",
+                "sha256:4200bd0418bb200886659f0e88bc692e895b694823d250fdf74681081587444a",
+                "sha256:8f351bd498187d169401ff5c46b55c9df8a0baf4d7f35d6e4e02e5e08cd3c738",
+                "sha256:482e482e54349a4094769d33757582bde457a202e9c2c648aac5ab042accb19e",
+                "sha256:76c2d42c7e67ca91588fc42d230ea801eda1f0e06d4d9947a2dc28e9e54195a8",
+                "sha256:4c9efd342402cbde1ca2f150d67af0e01b5e639ada3cf7481e22defd55585e79",
+                "sha256:654fc43818254fee4fe3a7582ee4967ea0b4ae755008460d2a33caa021d5cc61"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-05-26T04:00:26.347077831Z"
+        }
+    }
+]
