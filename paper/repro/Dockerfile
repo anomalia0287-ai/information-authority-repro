@@ -1,4 +1,8 @@
-FROM mcr.microsoft.com/dotnet/sdk:10.0-noble
+# Base image pinned by digest for long-term reproducibility: the moving tag
+# mcr.microsoft.com/dotnet/sdk:10.0-noble currently resolves to the manifest-list
+# digest below (CI resolves the linux/amd64 child). Pinning freezes the .NET SDK
+# that governs the numeric outputs so future tag updates cannot silently change them.
+FROM mcr.microsoft.com/dotnet/sdk:10.0-noble@sha256:c0790639332692a0d56cdd81ed581cfd24d040d9839764c138994866df89a3b6
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -8,6 +12,10 @@ ENV DOTNET_CLI_HOME=/workspace/.dotnet \
 
 WORKDIR /workspace
 
+# PowerShell here is only the test-harness runner that invokes the .NET verifier; it is
+# intentionally not version-pinned. The reproduced numbers come from the digest-pinned
+# .NET SDK above, and pinning an apt version that may later be dropped from the upstream
+# feed would itself break the build and thus reproducibility.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates curl gnupg apt-transport-https \
     && curl -fsSL https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb -o packages-microsoft-prod.deb \
