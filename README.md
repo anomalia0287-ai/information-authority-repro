@@ -1,5 +1,7 @@
 # Information Authority — Paper Reproduction Artifact
 
+[![DOI](https://zenodo.org/badge/1249789748.svg)](https://doi.org/10.5281/zenodo.20405018)
+
 Unity-free, deterministic reproduction bundle for the paper:
 **"Information Authority: A Knowledge-Provenance Architecture for Non-Cheating Tactical AI, with Unity-Free Reproducible Verification."**
 
