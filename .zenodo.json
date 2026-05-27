@@ -1,0 +1,21 @@
+{
+  "title": "Information Authority: Unity-free reproduction artifact for a knowledge-provenance non-cheating tactical-AI paper",
+  "description": "Unity-free, deterministic reproduction bundle (code subset, tracked scenario manifests, Dockerfile, GitHub Actions workflow, and reference result tables) for the paper \"Information Authority: A Knowledge-Provenance Architecture for Non-Cheating Tactical AI, with Unity-Free Reproducible Verification.\" It verifies that a central output validator rejects any decision derived from privileged (\"god-view\") simulation truth, that an auditable bait scenario presents privileged enemy data the honest path refuses, and that a fail-closed negative control is caught and classified -- reproduced bit-for-bit in a clean containerized CI environment. This is a software-architecture, verification, and reproducibility artifact only; it makes no human-realistic-behavior, tactical-superiority, operational, medical, targeting, surveillance, or weapon-control claim.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "cc-by-nc-4.0",
+  "creators": [
+    { "name": "Kim, Jaesung", "affiliation": "Independent Researcher" }
+  ],
+  "keywords": [
+    "knowledge provenance",
+    "information authority",
+    "non-cheating AI",
+    "computer-generated forces",
+    "partial observability",
+    "reproducibility",
+    "deterministic replay",
+    "trace-only execution",
+    "fail-closed verification"
+  ]
+}
