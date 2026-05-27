@@ -17,5 +17,8 @@
     "deterministic replay",
     "trace-only execution",
     "fail-closed verification"
+  ],
+  "related_identifiers": [
+    { "relation": "isSupplementTo", "identifier": "10.5281/zenodo.20409829", "resource_type": "publication-preprint", "scheme": "doi" }
   ]
 }

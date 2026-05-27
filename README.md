@@ -5,6 +5,8 @@
 Unity-free, deterministic reproduction bundle for the paper:
 **"Information Authority: A Knowledge-Provenance Architecture for Non-Cheating Tactical AI, with Unity-Free Reproducible Verification."**
 
+Paper (preprint): [10.5281/zenodo.20409829](https://doi.org/10.5281/zenodo.20409829)
+
 This repository contains the code subset, tracked scenario manifests, Dockerfile,
 GitHub Actions workflow, and reference result tables needed to reproduce the paper's
 no-cheat and reproducibility evidence **without Unity** (no Editor, Hub, licensing,
